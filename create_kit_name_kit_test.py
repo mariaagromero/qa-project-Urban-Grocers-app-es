@@ -47,62 +47,62 @@ def negative_assert_no_name(kit_body):
 
 # Pruebas
 # Prueba 1: El numero permitido de caracteres (1)
-def test_create_kit_name_1_character():
-    kit_body = data.kit_body["one-character"]
+def test_create_kit_name_1():
+    kit_body = data.kit_body["one_character"]
     kit_response = sender_stand_request.post_new_client_kit(data.kit_body)
     positive_assert(kit_response , 201 , kit_body)
 
 # Prueba 2: El numero permitido de caracteres (511)
-def test_create_kit_511_characters():
-    data.kit_body = data.kit_body["maximum_characters"]
+def test_create_kit_name_2():
+    kit_body = data.kit_body["maximum_characters"]
     kit_response = sender_stand_request.post_new_client_kit(data.kit_body)
-    positive_assert(kit_response , 201 , data.kit_body["name"])
+    positive_assert(kit_response , 201 , kit_body["name"])
 
 
 # Prueba 3: El número de caracteres es menor que la cantidad permitida (0)
-def test_create_kit_0_character():
-    data.kit_body = data.kit_body["empty_field"]
+def test_create_kit_name_3():
+    kit_body = data.kit_body["empty_field"]
     kit_response = sender_stand_request.post_new_client_kit(data.kit_body)
     negative_assert(kit_response , 400)
 
 
 # Prueba 4: El número de caracteres es mayor que la cantidad permitida (512)
-def test_create_kit_512_characters():
+def test_create_kit_name_4():
     data.kit_body = data.kit_body["number_of_characters_is_higher"]
     kit_response = sender_stand_request.post_new_client_kit(data.kit_body)
     negative_assert(kit_response , 400)
 
 
 # Prueba 5: Se permiten caracteres especiales
-def test_create_kit_special_characters():
-    data.kit_body = data.kit_body["special_characters"]
+def test_create_kit_name_5():
+    kit_body = data.kit_body["special_characters"]
     kit_response = sender_stand_request.post_new_client_kit(data.kit_body)
-    positive_assert(kit_response , 201 , data.kit_body["name"])
+    positive_assert(kit_response , 201 , kit_body["name"])
 
 
 # Prueba 6: Se permiten espacios
-def test_create_kit_space():
-    data.kit_body = data.kit_body["spaces"]
+def test_create_kit_name_6():
+    kit_body = data.kit_body["spaces"]
     kit_response = sender_stand_request.post_new_cliente_kit(data.kit_body)
-    positive_assert(kit_response , 201 , data.kit_body["name"])
+    positive_assert(kit_response , 201 , kit_body["name"])
 
 
 # Prueba 7: Se permiten números
-def test_create_kit_string_number():
-    data.kit_body = data.kit_body["numbers"]
+def test_create_kit_name_7():
+    kit_body = data.kit_body["numbers"]
     kit_response = sender_stand_request.post_new_client_kit(data.kit_body)
-    positive_assert(kit_response , 201 , data.kit_body["name"])
+    positive_assert(kit_response , 201 , kit_body["name"])
 
 
 # Prueba 8: El parámetro no se pasa en la solicitud
-def test_create_kit_no_parameters():
+def test_create_kit_name_8():
     data.kit_body = data.kit_body["the_is_no_parameter"]
     kit_response = sender_stand_request.post_new_client_kit(data.kit_body)
     negative_assert(kit_response , 400)
 
 
 # Prueba 9: Se ha pasado un tipo de parámetro diferente (número)
-def test_create_kit_different_parameter_number():
+def test_create_kit_name_9():
     data.kit_body = data.kit_body["different_parameter_(number)"]
     kit_response = sender_stand_request.post_new_client_kit(data.kit_body)
     negative_assert(kit_response , 400)
