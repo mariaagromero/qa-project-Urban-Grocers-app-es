@@ -3,32 +3,19 @@ import requests
 import data
 
 
-# Creacion de Cuenta
-def post_new_user(user_body):
+def post_new_user(body):
     return requests.post(configuration.URL_SERVICE + configuration.CREATE_USER_PATH,
-                        json=user_body ,
+                        json=body,
                         headers=data.headers)
 
-response = post_new_user(data.user_body)
-
-#Funcion para el authToken
-def auth_token():
-    user = post_new_user(data.user_body)
-    user_json = user.json()
-
-    if "authToken" in user_json:
-        return user_json["authToken"]
-    else:
-        return None
-
-    # Creacion del kit
-def post_new_client_kit(kit_body_key):
-    token = auth_token()
+def post_new_client_kit(kit_body, auth_token):
     headers = data.headers.copy()
-    headers["Authorization"] = f"Bearer {token}"
-
-    kit_body = kit_body_key
-
-    return requests.post(configuration.URL_SERVICE + configuration.KITS_PATH ,
-                         json=kit_body ,
+    headers['Authorization'] = f'Bearer {auth_token}'
+    return requests.post(configuration.URL_SERVICE + configuration.KITS_PATH,
+                         json=kit_body,
                          headers=headers)
+def get_kits_table():
+    response = requests.get(configuration.URL_SERVICE + configuration.KITS_TABLE_PATH)
+    table_data = response.content.decode('utf-8').split('\n')
+    kits_number = len([row for row in table_data if row.strip()]) - 1
+    return kits_number
