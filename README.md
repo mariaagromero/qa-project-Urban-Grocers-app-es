@@ -2,7 +2,7 @@
 #### Automatización de pruebas URBAN GROCERS APP
 
 ### Descripcion
-Este proyecto contiene un conjunto de funciones y pruebas automatizadas para verificar la creación de kits de usuarios en la pagina web de Urban Grocers. Utiliza requests para interactuar con la API y assert para validar los resultados esperados.
+Este proyecto contiene un conjunto de funciones y pruebas automatizadas para verificar la creación de kits de usuarios en la aplicacion de Urban Grocers. Utiliza requests para interactuar con la API y assert para validar los resultados esperados.
 
 El objetivo de este proyecto es automatizar la verificación de la creación de kits con diferentes nombres y parámetros, asegurando que el sistema maneje correctamente una variedad de casos. Los nombres de los kits pueden incluir caracteres especiales, espacios y números, y también se prueban casos límite como la longitud máxima y mínima de los nombres permitidos.
 
