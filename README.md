@@ -1,5 +1,5 @@
 ##### Maria Romero - Proyecto 7 - Cohort 10
-#### Automatización de pruebas de la aplicación web
+#### Automatización de pruebas URBAN GROCERS APP
 
 ### Descripcion
 Este proyecto contiene un conjunto de funciones y pruebas automatizadas para verificar la creación de kits de usuarios en la pagina web de Urban Grocers. Utiliza requests para interactuar con la API y assert para validar los resultados esperados.
