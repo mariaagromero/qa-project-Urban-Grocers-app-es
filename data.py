@@ -19,4 +19,5 @@ five_hundred_twelve_letter = "Abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdab
 special_symbol = "\"!@\","
 space = " A aar "
 string_number = "444"
+no_name = {}
 type_number = 444
