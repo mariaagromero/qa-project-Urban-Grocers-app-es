@@ -83,7 +83,7 @@ def test_create_kit_string_number_get_success_response():
 
 # Prueba 8: El parámetro no se pasa en la solicitud
 def test_create_kit_no_name_get_bad_request_response():
-    negative_assert(data.no_name)
+    negative_assert_no_name({})
 
 
 # Prueba 9: Se ha pasado un tipo de parámetro diferente (número)
